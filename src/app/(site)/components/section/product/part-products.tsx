@@ -2,6 +2,8 @@
 
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
+import { animated, useSpring } from "react-spring";
+import { useDrag } from "react-use-gesture";
 
 import { cn } from "@/lib/utils";
 
@@ -161,30 +163,46 @@ export const Products = () => {
   const [isTransform, setTransform] = useState("0%");
 
   const onPrev = () => {
-    setTransform((prev) => {
-      const next = parseInt(prev) + 100;
-      return `${next}%`;
-    });
+    const nextX = lastX + 100;
+    set({ x: nextX });
+    setLastX(nextX);
   };
 
   const onNext = () => {
-    setTransform((prev) => {
-      const next = parseInt(prev) - 100;
-      return `${next}%`;
-    });
+    const nextX = lastX - 100;
+    set({ x: nextX });
+    setLastX(nextX);
   };
+
+  const [{ x }, set] = useSpring(() => ({ x: 0 }));
+  const [lastX, setLastX] = useState(0); // to store the last value of x
+
+  const bind = useDrag(({ down, movement: [mx] }) => {
+    if (down) {
+      set({ x: lastX + mx });
+    } else {
+      // calculate the nearest multiple of 25 (since 25% represents one product width)
+      const newX = Math.round((lastX + mx) / 25);
+      set({ x: newX });
+      setLastX(newX);
+    }
+  });
+
   return (
     <div className="ie if">
       <div className="p q r s a5 h9 e">
         <div className="e ig">
-          <ButtonPrev onPrev={onPrev} isHidden={isTransform === "0%"} />
+          <ButtonPrev onPrev={onPrev} isHidden={lastX === 0} />
           <div className="an ed it dp">
             <div>
-              <div
+              <animated.div
+                {...bind()}
                 className="b iu ht"
                 style={{
-                  transform: `translate3d(${isTransform}, 0px, 0px)`,
-                  transition: "all 500ms",
+                  transform: x.interpolate(
+                    (x) => `translate3d(${x}%, 0px, 0px)`
+                  ),
+                  //transition: "all 500ms",
                 }}
               >
                 {Array.from({ length: 15 }).map((_, index) => (
@@ -195,7 +213,7 @@ export const Products = () => {
                     index={index}
                   />
                 ))}
-              </div>
+              </animated.div>
             </div>
           </div>
           <ButtonNext onNext={onNext} />
