@@ -45,11 +45,11 @@ const MenuHeading = ({ title }: any) => (
   </li>
 );
 
-const MenuItem = ({ dataValue, title, href }: any) => (
+const MenuItem = ({ datavalue, title, href }: any) => (
   <li className="jc">
     <a
       id="DesktopMegaMenu"
-      data-value={dataValue}
+      data-value={datavalue}
       className="a7 a8 o as aa aw at au g2"
       href={href}
     >
