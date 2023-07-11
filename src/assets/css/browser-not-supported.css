@@ -1,0 +1,31 @@
+#not-supported {
+  display: none;
+}
+
+body.oldbrowser #not-supported {
+  display: block;
+  width: 100%;
+  background: black;
+  color: white;
+  padding: 15px;
+}
+
+@media screen and (max-width: 360px) and (-webkit-max-device-pixel-ratio: 2) {
+  body.oldbrowser #not-supported {
+    position: absolute;
+    z-index: 999;
+    -webkit-transform: translateZ(0);
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) {
+  body.oldbrowser #not-supported {
+    top: 56px;
+  }
+}
+
+@media screen and (device-aspect-ratio: 40/71) {
+  body.oldbrowser #not-supported {
+    top: 56px;
+  }
+}
