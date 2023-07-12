@@ -4,15 +4,32 @@ import { useRef } from "react";
 import { useScroll } from "react-use";
 
 import { Banner } from "@/app/(site)/components/nav/banner";
+import {
+  HeaderMobileBottom,
+  HeaderMobileTop,
+} from "@/app/(site)/components/nav/header-mobile/header-mobile";
 import { MenuComponent } from "@/app/(site)/components/nav/megamenu";
 import { TopNav } from "@/app/(site)/components/nav/topnav";
 import { cn } from "@/lib/utils";
 import useMenuState from "@/zustand/useMenu";
+import useWindowSizeState from "@/zustand/useWindowSize";
+
+export const HeaderComponent = () => {
+  const { isMobile } = useWindowSizeState();
+
+  if (isMobile)
+    return (
+      <>
+        <HeaderMobileTop />
+        <HeaderMobileBottom />
+      </>
+    );
+  return <Header />;
+};
 
 export const Header = () => {
   const scrollRef = useRef(null);
   const { x, y } = useScroll(scrollRef);
-  console.log(x, y);
 
   const { isOpen } = useMenuState();
   const activeMenu = isOpen === "Hem" ? true : false;

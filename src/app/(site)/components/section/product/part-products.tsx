@@ -98,6 +98,8 @@ const ProductImages = () => {
 
 const ProductImage = ({ isSecond, ...props }: any) => (
   <img
+    draggable="false"
+    onDragStart={(event) => event.preventDefault()}
     loading={isSecond ? "eager" : "lazy"}
     width="1500"
     height="2000"
@@ -107,38 +109,48 @@ const ProductImage = ({ isSecond, ...props }: any) => (
   />
 );
 
-const ProductItem = ({ index, title, subtitle, price, isLeft }: any) => (
-  <div className="e ee ed it iv d8" style={{ left: isLeft ? "0%" : undefined }}>
-    <div className="e iw an ed">
-      <div className="b ae c an">
-        <a
-          className="ar a7 a8 o aa aw at au e h9 ix"
-          href="file:///D:/ceremonia/guava-rescue-spray-200-ml-v00031145"
-        >
-          <ProductImages />
-        </a>
-        <div className="e j1 an">
-          <ProductItemHeart />
+const ProductItem = ({ index, title, subtitle, price, isLeft }: any) => {
+  const onMouseDown = (e: any) => {
+    e.stopPropagation();
+  };
+  return (
+    <div
+      className="e ee ed it iv d8"
+      style={{ left: isLeft ? "0%" : undefined }}
+      onMouseDown={onMouseDown}
+      onMouseMove={onMouseDown}
+    >
+      <div className="e iw an ed">
+        <div className="b ae c an">
           <a
-            id="CategoryProductListBlock"
-            data-value="ProductCard|Text|Guava-rescue-spray-200-ml"
-            className="a7 a8 o as at au af j6 j7 ae b c"
+            className="ar a7 a8 o aa aw at au e h9 ix"
             href="file:///D:/ceremonia/guava-rescue-spray-200-ml-v00031145"
           >
-            <h2 className="j8 j9 gp gq x ex a5 a6 gs ja jb">
-              {title} + {index}
-            </h2>
-            <p className="ex jc jd">{subtitle}</p>
-            <span className="b z ed i6">
-              <span className="je">{price} kr</span>
-            </span>
-            <div className="b b6 jf" />
+            <ProductImages />
           </a>
+          <div className="e j1 an">
+            <ProductItemHeart />
+            <a
+              id="CategoryProductListBlock"
+              data-value="ProductCard|Text|Guava-rescue-spray-200-ml"
+              className="a7 a8 o as at au af j6 j7 ae b c"
+              href="file:///D:/ceremonia/guava-rescue-spray-200-ml-v00031145"
+            >
+              <h2 className="j8 j9 gp gq x ex a5 a6 gs ja jb">
+                {title} + {index}
+              </h2>
+              <p className="ex jc jd">{subtitle}</p>
+              <span className="b z ed i6">
+                <span className="je">{price} kr</span>
+              </span>
+              <div className="b b6 jf" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const ProductItemHeart = () => (
   <button
