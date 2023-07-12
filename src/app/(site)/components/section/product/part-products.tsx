@@ -272,7 +272,7 @@ export const MobileButtons = ({ isOpposite }: any) => {
 
   return (
     <div className="r af kk b b2 p q jq mm jv">
-      <button aria-label={1} className={buttonActiveClass}>
+      <button className={buttonActiveClass}>
         <div
           style={{
             height: "10px",
@@ -286,7 +286,7 @@ export const MobileButtons = ({ isOpposite }: any) => {
           )}
         />
       </button>
-      <button aria-label={2} className={buttonActiveClass}>
+      <button className={buttonActiveClass}>
         <div
           style={{
             height: "10px",
