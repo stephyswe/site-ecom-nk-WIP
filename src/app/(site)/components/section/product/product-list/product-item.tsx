@@ -1,4 +1,4 @@
-import { ProductItemHeart } from "@/app/(site)/components/section/product/item/product-button-heart";
+import { ProductItemHeart } from "@/app/(site)/components/section/product/product-button-heart";
 import { ProductImages } from "@/app/(site)/components/section/product/product-list/product-images";
 import useWindowSizeState from "@/zustand/useWindowSize";
 

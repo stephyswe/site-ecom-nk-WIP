@@ -1,7 +1,12 @@
 import { ExperienceLargeItem } from "@/app/(site)/components/section/experience/experience-large-list/experience-large-item";
+import { experienceDataType } from "@/app/(site)/data/experience-data";
 import useWindowSizeState from "@/zustand/useWindowSize";
 
-export const ExperienceLargeList = ({ data }: any) => {
+export const ExperienceLargeList = ({
+  data,
+}: {
+  data: experienceDataType["large"];
+}) => {
   const { isMobile } = useWindowSizeState();
   return (
     <div className="p q r s h9">

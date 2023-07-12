@@ -1,16 +1,22 @@
-import { ExperienceSmallButtonNext } from "@/app/(site)/components/section/experience/experience-small-list/experience-small-button-next";
-import { ExperienceSmallButtonPrev } from "@/app/(site)/components/section/experience/experience-small-list/experience-small-button-prev";
 import { ExperienceSmallItem } from "@/app/(site)/components/section/experience/experience-small-list/experience-small-item";
-import { MobileButtons } from "@/app/(site)/components/section/product/mobile/mobile-buttons";
+import { experienceDataType } from "@/app/(site)/data/experience-data";
+import { MobileButtons } from "@/components/ui/button/mobile-buttons";
+import { ProductButton } from "@/components/ui/button/product-button";
 import useWindowSizeState from "@/zustand/useWindowSize";
 
-export const ExperienceSmallList = ({ data }: any) => {
+export const ExperienceSmallList = ({
+  data,
+}: {
+  data: experienceDataType["small"];
+}) => {
   const { isMobile } = useWindowSizeState();
   return (
     <div className="p q r s">
       <div className="p q r s a6">
         <div className="e ig">
-          {isMobile ? null : <ExperienceSmallButtonPrev />}
+          {isMobile ? null : (
+            <ProductButton onClick={() => {}} isHidden ariaLabel="Föregående" />
+          )}
           <div className="an ed it dp">
             <div>
               <div
@@ -23,7 +29,9 @@ export const ExperienceSmallList = ({ data }: any) => {
               </div>
             </div>
           </div>
-          {isMobile ? null : <ExperienceSmallButtonNext />}
+          {isMobile ? null : (
+            <ProductButton onClick={() => {}} ariaLabel="Nästa" />
+          )}
           {isMobile ? <MobileButtons isOpposite /> : null}
         </div>
       </div>

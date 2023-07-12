@@ -1,4 +1,5 @@
-import { ExperienceButtonLarge } from "@/app/(site)/components/section/experience/experience-large-list/experience-large-button";
+import { experienceDataWithButtonType } from "@/app/(site)/data/experience-data";
+import { ExperienceButtonLarge } from "@/components/ui/button/experience-large-button";
 
 export const ExperienceLargeItem = ({
   title,
@@ -6,7 +7,7 @@ export const ExperienceLargeItem = ({
   href,
   image,
   buttons,
-}: any) => (
+}: experienceDataWithButtonType) => (
   <div className="p q r s gw gz">
     <a className="ar a7 a8 o as aa aw at au" href={href}>
       <div className="dp h0 h1 h2 h3 am b e">
@@ -24,7 +25,7 @@ export const ExperienceLargeItem = ({
       <p className="fi gw">{subtitle}</p>
     </div>
     <div className="p q r s am b b6">
-      {buttons.map((button: any, index: number) => (
+      {buttons.map((button, index: number) => (
         <ExperienceButtonLarge
           index={index}
           key={button.title}

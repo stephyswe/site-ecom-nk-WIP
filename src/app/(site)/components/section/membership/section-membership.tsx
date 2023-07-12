@@ -1,6 +1,6 @@
 "use client";
 
-import { MembershipButton } from "@/app/(site)/components/section/membership/membership-button";
+import { MembershipButton } from "@/components/ui/button/membership-button";
 import useWindowSizeState from "@/zustand/useWindowSize";
 
 export const SectionMembership = ({ data: { image, buttons } }: any) => {

@@ -1,3 +1,7 @@
+/* eslint-disable jsx-a11y/alt-text */
+
+/* eslint-disable @next/next/no-img-element */
+import { experienceDataWithLinkType } from "@/app/(site)/data/experience-data";
 import useWindowSizeState from "@/zustand/useWindowSize";
 
 export const ExperienceSmallItem = ({
@@ -6,7 +10,7 @@ export const ExperienceSmallItem = ({
   href,
   image,
   link,
-}: any) => {
+}: experienceDataWithLinkType) => {
   const { isMobile } = useWindowSizeState();
   return (
     <div

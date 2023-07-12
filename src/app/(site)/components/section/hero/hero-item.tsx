@@ -1,4 +1,4 @@
-import { HeroButton } from "@/app/(site)/components/section/hero/hero-button";
+import { HeroButton } from "@/components/ui/button/hero-button";
 
 export const HeroItem = ({ title, subtitle, href, image, buttons }: any) => {
   const imageNotFound =

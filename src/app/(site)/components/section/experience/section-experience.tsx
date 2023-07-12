@@ -4,9 +4,10 @@ import { ExperienceCityDesktop } from "@/app/(site)/components/section/experienc
 import { ExperienceCityMobile } from "@/app/(site)/components/section/experience/city/experience-mobile-city";
 import { ExperienceLargeList } from "@/app/(site)/components/section/experience/experience-large-list/experience-large-list";
 import { ExperienceSmallList } from "@/app/(site)/components/section/experience/experience-small-list/experience-small-list";
+import { experienceDataType } from "@/app/(site)/data/experience-data";
 import useWindowSizeState from "@/zustand/useWindowSize";
 
-export const SectionExperience = ({ data }: any) => {
+export const SectionExperience = ({ data }: { data: experienceDataType }) => {
   const { isMobile } = useWindowSizeState();
   return (
     <div>

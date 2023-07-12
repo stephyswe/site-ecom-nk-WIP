@@ -2,10 +2,9 @@ import { useState } from "react";
 import { animated, useSpring } from "react-spring";
 import { useDrag } from "react-use-gesture";
 
-import { ButtonNext } from "@/app/(site)/components/section/product/item/product-button-next";
-import { ButtonPrev } from "@/app/(site)/components/section/product/item/product-button-prev";
-import { MobileButtons } from "@/app/(site)/components/section/product/mobile/mobile-buttons";
 import { ProductItem } from "@/app/(site)/components/section/product/product-list/product-item";
+import { MobileButtons } from "@/components/ui/button/mobile-buttons";
+import { ProductButton } from "@/components/ui/button/product-button";
 import useWindowSizeState from "@/zustand/useWindowSize";
 
 export const ProductList = ({ data }: any) => {
@@ -52,7 +51,11 @@ export const ProductList = ({ data }: any) => {
       <div className={containerClass("div1")}>
         <div className="e ig">
           {isMobile ? null : (
-            <ButtonPrev onPrev={onPrev} isHidden={lastX === 0} />
+            <ProductButton
+              onClick={onPrev}
+              ariaLabel="Tidigare"
+              isHidden={lastX === 0}
+            />
           )}
           <div className="an ed it dp">
             <div>
@@ -77,7 +80,9 @@ export const ProductList = ({ data }: any) => {
               </animated.div>
             </div>
           </div>
-          {isMobile ? null : <ButtonNext onNext={onNext} />}
+          {isMobile ? null : (
+            <ProductButton onClick={onNext} ariaLabel="Nästa" />
+          )}
           {isMobile ? <MobileButtons /> : null}
         </div>
       </div>
