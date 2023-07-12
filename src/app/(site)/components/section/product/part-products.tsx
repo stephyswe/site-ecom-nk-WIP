@@ -6,6 +6,7 @@ import { animated, useSpring } from "react-spring";
 import { useDrag } from "react-use-gesture";
 
 import { cn } from "@/lib/utils";
+import useWindowSizeState from "@/zustand/useWindowSize";
 
 const ButtonPrev = ({ onPrev, isHidden }: any) => {
   return (
@@ -86,12 +87,18 @@ const ProductImages = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <ProductImage {...one} />
+      <img
+        alt="Guava rescue spray 200 ml"
+        loading="lazy"
+        src="data:image/svg+xml;base64,DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDUxMiA1MTIiPjxwYXRoIGQ9Ik00MDUgMTM2Ljc5OEwzNzUuMjAyIDEwNyAyNTYgMjI2LjIwMiAxMzYuNzk4IDEwNyAxMDcgMTM2Ljc5OCAyMjYuMjAyIDI1NiAxMDcgMzc1LjIwMiAxMzYuNzk4IDQwNSAyNTYgMjg1Ljc5OCAzNzUuMjAyIDQwNSA0MDUgMzc1LjIwMiAyODUuNzk4IDI1NnoiIGZpbGw9InJnYmEoMCwgMCwgMCwgLjEpIi8+PC9zdmc+"
+        class="r h4 h5 o jg jh eh iz ae s ez j j0"
+      ></img>
+      {/* <ProductImage {...one} />
       <div
         style={{ opacity: isHovered ? "1" : "0", transition: "opacity 500ms" }}
       >
         <ProductImage {...two} />
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -110,12 +117,13 @@ const ProductImage = ({ isSecond, ...props }: any) => (
 );
 
 const ProductItem = ({ index, title, subtitle, price, isLeft }: any) => {
+  const { isMobile } = useWindowSizeState();
   const onMouseDown = (e: any) => {
     e.stopPropagation();
   };
   return (
     <div
-      className="e ee ed it iv d8"
+      className={isMobile ? "e ee ed it n6 d8" : "e ee ed it iv d8"}
       style={{ left: isLeft ? "0%" : undefined }}
       onMouseDown={onMouseDown}
       onMouseMove={onMouseDown}
@@ -123,7 +131,11 @@ const ProductItem = ({ index, title, subtitle, price, isLeft }: any) => {
       <div className="e iw an ed">
         <div className="b ae c an">
           <a
-            className="ar a7 a8 o aa aw at au e h9 ix"
+            className={
+              isMobile
+                ? "ar a7 a8 o aa aw at au e gw ix"
+                : "ar a7 a8 o aa aw at au e h9 ix"
+            }
             href="file:///D:/ceremonia/guava-rescue-spray-200-ml-v00031145"
           >
             <ProductImages />
@@ -173,6 +185,7 @@ const ProductItemHeart = () => (
 
 export const Products = () => {
   const [isTransform, setTransform] = useState("0%");
+  const { isMobile } = useWindowSizeState();
 
   const onPrev = () => {
     const nextX = lastX + 100;
@@ -200,11 +213,22 @@ export const Products = () => {
     }
   });
 
+  const containerClass = (type: "container" | "div1") => {
+    const containerClasses = {
+      container: ["ie if", ""],
+      div1: ["p q r s a5 h9 e", "p q r s n5 h9 e"],
+    };
+
+    return isMobile ? containerClasses[type][1] : containerClasses[type][0];
+  };
+
   return (
-    <div className="ie if">
-      <div className="p q r s a5 h9 e">
+    <div className={containerClass("container")}>
+      <div className={containerClass("div1")}>
         <div className="e ig">
-          <ButtonPrev onPrev={onPrev} isHidden={lastX === 0} />
+          {isMobile ? null : (
+            <ButtonPrev onPrev={onPrev} isHidden={lastX === 0} />
+          )}
           <div className="an ed it dp">
             <div>
               <animated.div
@@ -228,9 +252,41 @@ export const Products = () => {
               </animated.div>
             </div>
           </div>
-          <ButtonNext onNext={onNext} />
+          {isMobile ? null : <ButtonNext onNext={onNext} />}
+          {isMobile ? <MobileButtons /> : null}
         </div>
       </div>
     </div>
   );
 };
+
+const MobileButtons = () => (
+  <div className="r af kk b b2 p q jq mm jv">
+    <button
+      aria-label={1}
+      className="dq j2 dr ds dt cw cx cy cz at as du dv es dw fk md me d6 d7"
+    >
+      <div
+        style={{
+          height: "10px",
+          width: "10px",
+          borderRadius: "50%",
+        }}
+        className="kk fo fn fm fr fq fp fu ft fs ah ag fv"
+      />
+    </button>
+    <button
+      aria-label={2}
+      className="dq j2 dr ds dt cw cx cy cz at as du dv es dw fk md me d6 d7"
+    >
+      <div
+        style={{
+          height: "10px",
+          width: "10px",
+          borderRadius: "50%",
+        }}
+        className="k5"
+      />
+    </button>
+  </div>
+);
