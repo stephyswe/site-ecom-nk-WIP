@@ -1,4 +1,4 @@
-export const BannerRelisation = () => (
+export const BannerRealisation = () => (
   <div>
     <div className="p q r t b am y gb b2 gc gd ge gf gg gh gi gj gk">
       <div className="b b6 gl">

@@ -88,3 +88,54 @@
 .mll {
   width: calc(86.9565% - 0px);
 }
+
+.nl {
+  transform: rotate(-90deg);
+}
+
+.ne {
+  transform: rotate(90deg);
+}
+
+.ng {
+  height: 0px;
+}
+.nf {
+  will-change: height;
+}
+
+.ns {
+  height: 240px;
+}
+
+.nr {
+  animation-fill-mode: forwards;
+}
+
+.nq {
+  animation-timing-function: ease-out;
+}
+.np {
+  animation-duration: 1000ms;
+}
+.no {
+  animation-name: c;
+}
+.nn {
+  background-image: radial-gradient(currentcolor, transparent);
+}
+.nm {
+  will-change: opacity, transform;
+}
+
+.nt {
+  height: 469px;
+}
+
+.nu {
+  height: 189px;
+}
+
+.mh {
+  font-size: 1rem;
+}

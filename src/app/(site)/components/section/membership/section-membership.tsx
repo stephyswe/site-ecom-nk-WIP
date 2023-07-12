@@ -36,7 +36,7 @@ export const SectionMembership = () => {
             </div>
           </div>
         </div>
-        <div className="jo if">
+        <div className={isMobile ? "" : "jo if"}>
           <div className="p q r s">
             <div className="d8 d9">
               <h1 className="gq gp jp x jq jr js jt">Bli medlem </h1>

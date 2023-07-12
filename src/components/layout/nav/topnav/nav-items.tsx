@@ -1,4 +1,4 @@
-import { NavItem } from "@/app/(site)/components/nav/topnav/nav-item";
+import { NavItem } from "./nav-item";
 
 const dataNavItems = ["Dam", "Herr", "Barn", "Skönhet", "Sport", "Hem"];
 

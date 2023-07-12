@@ -3,27 +3,18 @@
 import { useRef } from "react";
 import { useScroll } from "react-use";
 
-import { Banner } from "@/app/(site)/components/nav/banner";
-import {
-  HeaderMobileBottom,
-  HeaderMobileTop,
-} from "@/app/(site)/components/nav/header-mobile/header-mobile";
-import { MenuComponent } from "@/app/(site)/components/nav/megamenu";
-import { TopNav } from "@/app/(site)/components/nav/topnav";
 import { cn } from "@/lib/utils";
 import useMenuState from "@/zustand/useMenu";
 import useWindowSizeState from "@/zustand/useWindowSize";
 
+import { Banner } from "./banner";
+import { MenuComponent } from "./mega-menu";
+import { HeaderMobile } from "./mobile/header-mobile";
+import { TopNav } from "./topnav";
+
 export const HeaderComponent = () => {
   const { isMobile } = useWindowSizeState();
-
-  if (isMobile)
-    return (
-      <>
-        <HeaderMobileTop />
-        <HeaderMobileBottom />
-      </>
-    );
+  if (isMobile) return <HeaderMobile />;
   return <Header />;
 };
 

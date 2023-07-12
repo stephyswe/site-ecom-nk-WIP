@@ -1,9 +1,7 @@
-import { dataMegaMenuHem } from "@/app/(site)/components/nav/megamenu/data-menu";
-import {
-  MenuContainer,
-  MenuRow,
-} from "@/app/(site)/components/nav/megamenu/menu-items";
 import useMenuState from "@/zustand/useMenu";
+
+import { dataMegaMenuHem } from "./data-menu";
+import { MenuContainer, MenuRow } from "./menu-items";
 
 const MenuComponent = () => {
   const { isOpen } = useMenuState();

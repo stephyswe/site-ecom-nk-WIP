@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import { Footer } from "@/components/layout/footer/footer";
+import { HeaderComponent } from "@/components/layout/nav/header";
+
 import "../assets/css/css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,7 +20,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div>
+          <div id="not-supported">
+            Det verkar som att du använder en gammal webbläsare, det kan göra
+            att allt inte fungerar eller ser ut som det borde.
+          </div>
+          <div className="container">
+            <div className="a b c d">
+              <HeaderComponent />
+              {children}
+              <div>
+                <Footer />
+              </div>
+            </div>
+          </div>
+        </div>
+      </body>
     </html>
   );
 }

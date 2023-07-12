@@ -1,10 +1,10 @@
-import { ItemCart } from "@/app/(site)/components/nav/topnav/item-cart";
-import { ItemLike } from "@/app/(site)/components/nav/topnav/item-like";
-import { ItemSearch } from "@/app/(site)/components/nav/topnav/item-search";
-import { ItemUser } from "@/app/(site)/components/nav/topnav/item-user";
-import { Logo } from "@/app/(site)/components/nav/topnav/logo";
-import { MenuLeft } from "@/app/(site)/components/nav/topnav/menu-left";
-import { NavItems } from "@/app/(site)/components/nav/topnav/nav-items";
+import { ItemCart } from "./item-cart";
+import { ItemLike } from "./item-like";
+import { ItemSearch } from "./item-search";
+import { ItemUser } from "./item-user";
+import { Logo } from "./logo";
+import { MenuLeft } from "./menu-left";
+import { NavItems } from "./nav-items";
 
 export const TopNav = () => (
   <div className="e k b c ac d ae af ag ah ai">
