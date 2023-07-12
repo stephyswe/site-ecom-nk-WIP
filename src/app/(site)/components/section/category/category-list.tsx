@@ -1,10 +1,10 @@
 "use client";
 
-import { categoryData } from "@/app/(site)/components/section/category/category-data";
+import { categoryData } from "@/app/(site)/data/category-data";
 import { CategoryItem } from "@/app/(site)/components/section/category/category-item";
 import useWindowSizeState from "@/zustand/useWindowSize";
 
-export const SectionCategory = () => {
+export const CategoryList = ({data}: any) => {
   const { isMobile } = useWindowSizeState();
 
   const containerClass = (type: "list" | "item") => {

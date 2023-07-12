@@ -1,4 +1,14 @@
-export const categoryData = [
+type categoryDataType = {
+  title: string;
+  image: {
+    src: string;
+    alt: string;
+    srcSet: string;
+    datavalue: string;
+  };
+}[];
+
+export const categoryData: categoryDataType = [
   {
     title: "Dam",
     image: {

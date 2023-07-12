@@ -1,11 +1,20 @@
-import { BannerRealisation } from "@/app/(site)/components/section/banner-realisation";
-import { SectionCategory } from "@/app/(site)/components/section/category/category";
+import { BannerList } from "@/app/(site)/components/section/banner/banner-list";
+import { CategoryList } from "@/app/(site)/components/section/category/category-list";
 import { SectionExperience } from "@/app/(site)/components/section/experience/section-experience";
-import { Hero } from "@/app/(site)/components/section/hero/hero";
+import { HeroList } from "@/app/(site)/components/section/hero/hero-list";
 import { SectionMembership } from "@/app/(site)/components/section/membership/section-membership";
 import { SectionProduct } from "@/app/(site)/components/section/product/section-product";
+import { homepageData } from "@/app/(site)/data/data";
 
 export default function HomePage() {
+  const {
+    bannerData,
+    heroData,
+    categoryData,
+    productData,
+    membershipData,
+    experienceData,
+  } = homepageData;
   return (
     <div id="content-container" className="b b6 an e2">
       <div className="e">
@@ -21,17 +30,16 @@ export default function HomePage() {
           </noscript>
           <div className="p q r s">
             <div>
-              <BannerRealisation />
-              <Hero />
-              <SectionCategory />
-              <SectionProduct />
-              <SectionMembership />
-              <SectionExperience />
+              <BannerList data={bannerData} />
+              <HeroList data={heroData} />
+              <CategoryList data={categoryData} />
+              <SectionProduct data={productData} />
+              <SectionMembership data={membershipData} />
+              <SectionExperience data={experienceData} />
             </div>
           </div>
         </main>
       </div>
-
     </div>
   );
 }

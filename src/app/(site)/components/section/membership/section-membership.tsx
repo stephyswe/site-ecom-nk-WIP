@@ -1,8 +1,9 @@
 "use client";
 
+import { MembershipButton } from "@/app/(site)/components/section/membership/membership-button";
 import useWindowSizeState from "@/zustand/useWindowSize";
 
-export const SectionMembership = () => {
+export const SectionMembership = ({ data: { image, buttons } }: any) => {
   const { isMobile } = useWindowSizeState();
   return (
     <div>
@@ -81,30 +82,9 @@ export const SectionMembership = () => {
                 <li>Fri frakt på NK.se</li>
               </ul>
               <div className="p q r s am b jq b6">
-                <div className="ju hc">
-                  <a
-                    id="HeroBlockV2"
-                    data-value="Bli-Medlem|Bli-medlem"
-                    className="a7 a8 o as at au an am b2 x dy t u hd fo fn he fr fq hf fu ft ai ah ag hg aw hh e8 e9 bj hi hj hk hl hm hn ew ho gm hp hq da z fk y jv jw"
-                    href="file:///D:/nk-nyckeln/bli-nyckelkund"
-                  >
-                    <span id="HeroBlockV2" data-value="Bli-Medlem|Bli-medlem">
-                      Bli medlem
-                    </span>
-                  </a>
-                </div>
-                <div className="ju hc">
-                  <a
-                    id="HeroBlockV2"
-                    data-value="Bli-Medlem|Läs-mer"
-                    className="a7 a8 o as at au an am b2 x dy ar b7 hd fo fn he fr fq hf fu ft ai ah ag e8 e9 bj jx jy ew ho gm hp hq da z aw ax jz k0 k1 k2 fk y jv jw"
-                    href="file:///D:/nk-nyckeln"
-                  >
-                    <span id="HeroBlockV2" data-value="Bli-Medlem|Läs-mer">
-                      Läs mer
-                    </span>
-                  </a>
-                </div>
+                {buttons.map((item: { title: any }, index: any) => (
+                  <MembershipButton {...item} key={item.title} index={index} />
+                ))}
               </div>
             </div>
           </div>

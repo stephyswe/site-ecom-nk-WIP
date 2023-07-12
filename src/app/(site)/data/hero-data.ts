@@ -1,4 +1,4 @@
-export const heroItems = [
+export const heroData = [
   {
     href: "file:///D:/kampanj/sommardoft/dam",
     title: "Sola säkert i sommar",

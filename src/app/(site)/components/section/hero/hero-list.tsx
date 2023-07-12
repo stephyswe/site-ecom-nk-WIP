@@ -1,10 +1,9 @@
 "use client";
 
-import { heroItems } from "@/app/(site)/components/section/hero/hero-data";
 import { HeroItem } from "@/app/(site)/components/section/hero/hero-item";
 import useWindowSizeState from "@/zustand/useWindowSize";
 
-export const Hero = () => {
+export const HeroList = ({ data }: any) => {
   const { isMobile } = useWindowSizeState();
 
   const containerClass = (index: number) => {
@@ -22,7 +21,7 @@ export const Hero = () => {
       <div className="p q a0 aj ak al gx">
         <div className="p q r s a6">
           <div className="b gy">
-            {heroItems.map((item, index) => {
+            {data.map((item: any, index: any) => {
               return (
                 <div key={item.title} className={containerClass(index)}>
                   <HeroItem key={item.title} {...item} />
