@@ -139,7 +139,6 @@ export const FooterForm = () => (
               <div className="e fk h9">
                 <input
                   placeholder="Fyll i e-postadress"
-                  required=""
                   autoCorrect="off"
                   spellCheck="false"
                   type="email"
