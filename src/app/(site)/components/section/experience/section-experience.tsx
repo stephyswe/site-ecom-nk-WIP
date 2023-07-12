@@ -1,3 +1,8 @@
+"use client";
+
+import { MobileButtons } from "@/app/(site)/components/section/product/part-products";
+import useWindowSizeState from "@/zustand/useWindowSize";
+
 const experienceLargeData = [
   {
     title: "Ny avdelning på NK i Stockholm: Tommy Hilfiger Kids",
@@ -11,7 +16,7 @@ const experienceLargeData = [
     },
     buttons: [
       {
-        title: "Följ Nk Göteborg",
+        title: "Läs mer",
         datavalue:
           "Ny-avdelning-på-NK-i-Stockholm:-Tommy-Hilfiger-Kids|Läs-mer",
       },
@@ -40,45 +45,83 @@ const experienceLargeData = [
   },
 ];
 
-const ExperienceCity = () => (
-  <div className="p q r s">
-    <div className="s b am dp p q a5 a6 k6">
-      <img
-        alt="Varushuset i Stockholm"
-        loading="lazy"
-        src="/globalassets/sb-2022/nyheter/stlm-black-final1280x960.jpg?ref=7EEDF72DF5&w=2880&format=png&quality=85 1.5x"
-        srcSet=""
-        className="r h4 h5 o jg jh eh h7 k7 k8 k9 ka kb kc kd"
-      />
-      <div className="p q a5 a6 ke">
-        <h2 className="fi gp gq j8 j9 gt kf gs jt kg y x kh">Upplev NK</h2>
-        <div className="p q r s b b2 ki kj">
-          <a
-            id="DepartmentStoreArticleBlock"
-            data-value="StoreButton|Stockholm"
-            className="a7 a8 o as at au dx an am b2 x dy t kk kl fo fn km fr fq kn fu ft ay ah ag aw hh e8 e9 bj ko hn ew ho gm hp hq da z kp kq"
-            href="file:///D:/varuhusen?selected-store=sth"
-          >
-            Stockholm
-          </a>
-          <a
-            id="DepartmentStoreArticleBlock"
-            data-value="StoreButton|Göteborg"
-            className="a7 a8 o as at au dx an am b2 x dy t kk kl fo fn km fr fq kn fu ft ay ah ag aw hh e8 e9 bj ko hn ew ho gm hp hq da z kp"
-            href="file:///D:/varuhusen?selected-store=gbg"
-          >
-            Göteborg
-          </a>
-        </div>
-      </div>
-      <img
-        alt="Varuhuset i Göteborg"
-        loading="lazy"
-        src="/globalassets/sb-2022/nyheter/gbg-varuhus-black1280x960.jpg?ref=669CA1E59F&w=1920&format=png&quality=85"
-        srcSet="/globalassets/sb-2022/nyheter/gbg-varuhus-black1280x960.jpg?ref=669CA1E59F&w=2880&format=png&quality=85 1.5x"
-        className="r h4 h5 o jg jh eh h7 k7 k8 k9 ka kb kc kr"
-      />
+const ExperienceCity = () => {
+  const { isMobile } = useWindowSizeState();
+  return (
+    <div className="p q r s">
+      {isMobile ? <ExperienceCityMobile /> : <ExperienceCityDesktop />}
     </div>
+  );
+};
+
+const ExperienceCityMobile = () => (
+  <>
+    <h2 className="fi gp gq j8 j9 gt kf gs jt a6 y x kh">Upplev NK</h2>
+    <img
+      alt="Varuhusen i Stockholm och Göteborg"
+      loading="lazy"
+      src="/globalassets/sb-2022/nyheter/varuhus640-480.jpg?ref=406DA3CE57&w=960&format=png&quality=85"
+      srcSet="/globalassets/sb-2022/nyheter/varuhus640-480.jpg?ref=406DA3CE57&w=1440&format=png&quality=85 1.5x,/globalassets/sb-2022/nyheter/varuhus640-480.jpg?ref=406DA3CE57&w=1920&format=png&quality=85 2x"
+      className="r s h4 h5 o jg jh eh h7"
+    />
+    <div className="p q r s b b2 ki kj">
+      <a
+        id="DepartmentStoreArticleBlock"
+        data-value="StoreButton|Stockholm"
+        className="a7 a8 o as at au dx an am b2 x dy t kk kl fo fn km fr fq kn fu ft ay ah ag aw hh e8 e9 bj ko hn ew ho gm hp hq da z kp kq"
+        href="file:///D:/varuhusen?selected-store=sth"
+      >
+        Stockholm
+      </a>
+      <a
+        id="DepartmentStoreArticleBlock"
+        data-value="StoreButton|Göteborg"
+        className="a7 a8 o as at au dx an am b2 x dy t kk kl fo fn km fr fq kn fu ft ay ah ag aw hh e8 e9 bj ko hn ew ho gm hp hq da z kp"
+        href="file:///D:/varuhusen?selected-store=gbg"
+      >
+        Göteborg
+      </a>
+    </div>
+  </>
+);
+
+const ExperienceCityDesktop = () => (
+  <div className="s b am dp p q a5 a6 k6">
+    <img
+      alt="Varushuset i Stockholm"
+      loading="lazy"
+      src="/globalassets/sb-2022/nyheter/stlm-black-final1280x960.jpg?ref=7EEDF72DF5&w=2880&format=png&quality=85 1.5x"
+      srcSet=""
+      className="r h4 h5 o jg jh eh h7 k7 k8 k9 ka kb kc kd"
+    />
+    <div className="p q a5 a6 ke">
+      <h2 className="fi gp gq j8 j9 gt kf gs jt kg y x kh">Upplev NK</h2>
+      <div className="p q r s b b2 ki kj">
+        <a
+          id="DepartmentStoreArticleBlock"
+          data-value="StoreButton|Stockholm"
+          className="a7 a8 o as at au dx an am b2 x dy t kk kl fo fn km fr fq kn fu ft ay ah ag aw hh e8 e9 bj ko hn ew ho gm hp hq da z kp kq"
+          href="file:///D:/varuhusen?selected-store=sth"
+        >
+          Stockholm
+        </a>
+        <a
+          id="DepartmentStoreArticleBlock"
+          data-value="StoreButton|Göteborg"
+          className="a7 a8 o as at au dx an am b2 x dy t kk kl fo fn km fr fq kn fu ft ay ah ag aw hh e8 e9 bj ko hn ew ho gm hp hq da z kp"
+          href="file:///D:/varuhusen?selected-store=gbg"
+        >
+          Göteborg
+        </a>
+      </div>
+    </div>
+    <img
+      alt="Varuhuset i Göteborg"
+      loading="lazy"
+      src="/globalassets/sb-2022/nyheter/gbg-varuhus-black1280x960.jpg?ref=669CA1E59F&w=1920&format=png&quality=85"
+      srcSet="/globalassets/sb-2022/nyheter/gbg-varuhus-black1280x960.jpg?ref=669CA1E59F&w=2880&format=png&quality=85 1.5x"
+      className="r h4 h5 o jg jh eh h7 k7 k8 k9 ka kb kc kr"
+    />
   </div>
 );
 
@@ -214,39 +257,45 @@ const experienceSmallData = [
   },
 ];
 
-const ExperienceSmallItem = ({ title, subtitle, href, image, link }: any) => (
-  <div className="e ee ed it kt ku" style={{ left: "0%" }}>
-    <div className="p q r s gw gz">
-      <a className="ar a7 a8 o as aa aw at au" href={href}>
-        <div className="dp h0 h1 h2 h3 am b e">
-          <img
-            width="1280"
-            height="960"
-            loading="lazy"
-            className="r h4 h5 o jg jh eh s h7 ez i d5"
-            {...image}
-          />
+const ExperienceSmallItem = ({ title, subtitle, href, image, link }: any) => {
+  const { isMobile } = useWindowSizeState();
+  return (
+    <div
+      className={isMobile ? "e ee ed it mll ku" : "e ee ed it kt ku"}
+      style={{ left: "0%" }}
+    >
+      <div className="p q r s gw gz">
+        <a className="ar a7 a8 o as aa aw at au" href={href}>
+          <div className="dp h0 h1 h2 h3 am b e">
+            <img
+              width="1280"
+              height="960"
+              loading="lazy"
+              className="r h4 h5 o jg jh eh s h7 ez i d5"
+              {...image}
+            />
+          </div>
+        </a>
+        <h3 className="gn go gp gq x gr gs gt gu fi h8">{title}</h3>
+        <div className="gv h9 ha gg">
+          <p className="fi gw">{subtitle}</p>
         </div>
-      </a>
-      <h3 className="gn go gp gq x gr gs gt gu fi h8">{title}</h3>
-      <div className="gv h9 ha gg">
-        <p className="fi gw">{subtitle}</p>
-      </div>
-      <div className="p q r s am b b6">
-        <div className="hb kv">
-          <a
-            id="EditorialButtonBlock"
-            data-value="Lacoste-på-NK-Stage|Läs-mer"
-            className="at au a7 a8 o a9 aa ab kw gw fk t"
-            href={href}
-          >
-            {link.title}
-          </a>
+        <div className="p q r s am b b6">
+          <div className="hb kv">
+            <a
+              id="EditorialButtonBlock"
+              data-value="Lacoste-på-NK-Stage|Läs-mer"
+              className="at au a7 a8 o a9 aa ab kw gw fk t"
+              href={href}
+            >
+              {link.title}
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const ExperienceButtonPrev = () => (
   <button
@@ -282,48 +331,52 @@ const ExperienceButtonNext = () => (
   </button>
 );
 
-export const SectionExperience = () => (
-  <div>
-    <div className="p q r s k3 k4 k5 t">
-      <ExperienceCity />
-      <div className="p q a0 s h9">
-        <div className="p q r s h9">
-          <div className="p q r s a6">
-            <div className="b gy">
-              {experienceLargeData.map((item, index) => {
-                const standard = "rs s a3 a4";
-                const opposite = "rs s a4 hr";
-                const className = index === 0 ? standard : opposite;
-                return (
-                  <div className={className} key={item.title}>
-                    <ExperienceLargeItem {...item} />
-                  </div>
-                );
-              })}
+export const SectionExperience = () => {
+  const { isMobile } = useWindowSizeState();
+  return (
+    <div>
+      <div className={isMobile ? "p q r s mj mk k5 t" : "p q r s k3 k4 k5 t"}>
+        <ExperienceCity />
+        <div className={isMobile ? "p q a0 aj ak al h9" : "p q a0 s h9"}>
+          <div className="p q r s h9">
+            <div className="p q r s a6">
+              <div className="b gy">
+                {experienceLargeData.map((item, index) => {
+                  const standard = "rs s a3 a4";
+                  const opposite = isMobile ? "rs s a4 a3" : "rs s a4 hr";
+                  const className = index === 0 ? standard : opposite;
+                  return (
+                    <div className={className} key={item.title}>
+                      <ExperienceLargeItem {...item} />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
-        <div className="p q r s">
-          <div className="p q r s a6">
-            <div className="e ig">
-              <ExperienceButtonPrev />
-              <div className="an ed it dp">
-                <div>
-                  <div
-                    className="b iu ks"
-                    style={{ transform: "translate3d(0%, 0px, 0px)" }}
-                  >
-                    {experienceSmallData.map((item) => (
-                      <ExperienceSmallItem key={item.title} {...item} />
-                    ))}
+          <div className="p q r s">
+            <div className="p q r s a6">
+              <div className="e ig">
+                {isMobile ? null : <ExperienceButtonPrev />}
+                <div className="an ed it dp">
+                  <div>
+                    <div
+                      className="b iu ks"
+                      style={{ transform: "translate3d(0%, 0px, 0px)" }}
+                    >
+                      {experienceSmallData.map((item) => (
+                        <ExperienceSmallItem key={item.title} {...item} />
+                      ))}
+                    </div>
                   </div>
                 </div>
+                {isMobile ? null : <ExperienceButtonNext />}
+                {isMobile ? <MobileButtons isOpposite /> : null}
               </div>
-              <ExperienceButtonNext />
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};

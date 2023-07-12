@@ -2,9 +2,9 @@
   flex-basis: 50%;
 }
 
-.mk {
+/* .mk {
   height: 156px;
-}
+} */
 
 .ml {
   top: 25px;
@@ -75,4 +75,16 @@
   .ak {
     width: calc(100vw - (100vw - 100%) - 28px * 2);
   }
+}
+
+.mk {
+  padding-top: 21px;
+}
+
+.mj {
+  padding-bottom: 1px;
+}
+
+.mll {
+  width: calc(86.9565% - 0px);
 }
